@@ -1,22 +1,21 @@
 public class Solution {
     public int[] TwoSum(int[] numbers, int target) {
-        
-        for(int i =0; i<=numbers.Length;i++)
+       int l = 0;
+       int r = numbers.Length -1;
+       int current = numbers[l] + numbers[r];
+       while( current != target)
+       {
+            if(current > target)
             {
-            
-            for(int j = i; j <numbers.Length;j++)
-                {
-                    int current = numbers[i] + numbers[j];
-                    if(current == target && i !=j)
-                    {
-                        return new int[]{i+1,j+1};
-                    }
-
-                    if(current > target) break;
-                }   
-            
-            } 
-
-            return new int[]{0};        
+                r--;
+            }
+            else
+            {
+                l++;
+            }
+            current = numbers[l] + numbers[r];
+       } 
+    
+        return new int []{l+1,r+1};
     }
 }
