@@ -1,10 +1,11 @@
 public class Solution {
     public int MissingNumber(int[] nums) {
-        var a = new HashSet<int>(nums);
-
-        for(int i = 0; i <= nums.Length; i++){
-            if(!a.Contains(i))return i;
+        int current = 0;
+        int target = nums.Length * (nums.Length + 1) /2;
+      
+        for(int i = 0; i < nums.Length; i++){
+            current += nums[i];
         }
-        return 0;
+        return target - current;
     }
 }
